@@ -11,7 +11,9 @@
 #  user_id       :integer
 #
 class FoodItem < ApplicationRecord
+  validates(:user_id, { :presence => true })
+  validates(:expiry_date, { :presence => true })
 
-  belongs_to(:user, { :required => false, :class_name => "User", :foreign_key => "user_id", :counter_cache => :food_databases_count })
+  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id", :counter_cache => :food_databases_count })
   
 end

@@ -2,8 +2,8 @@ desc "Hydrate the database with some sample data to look at so that developing i
 task({ :sample_data => :environment}) do
 
   #if Rails.env.development?
-   # User.destroy_all
-   # FoodItem.destroy_all
+   #User.destroy_all
+   #FoodItem.destroy_all
   #end
 
 
@@ -11,6 +11,7 @@ task({ :sample_data => :environment}) do
   a.email = "alice@example.com"
   a.password = "password"
   a.phone_number = "+1112223333"
+  a.name = "Alice"
   a.id = 2
   a.save
 
@@ -18,6 +19,7 @@ task({ :sample_data => :environment}) do
   b.email = "matt@example.com"
   b.password = "password"
   b.phone_number = "+1666623333"
+  b.name = "Matt"
   b.id = 3
   b.save
 

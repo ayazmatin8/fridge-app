@@ -1,6 +1,7 @@
 class FoodItemsController < ApplicationController
   def index
-    matching_food_items = FoodItem.all
+    
+    matching_food_items = @current_user.food_items
 
     @list_of_food_items = matching_food_items.order({ :created_at => :desc })
 
@@ -19,7 +20,7 @@ class FoodItemsController < ApplicationController
 
   def create
     the_food_item = FoodItem.new
-    the_food_item.user_id = params.fetch("query_user_id")
+    the_food_item.user_id = @current_user.id
     the_food_item.item_name = params.fetch("query_item_name")
     the_food_item.food_category = params.fetch("query_food_category")
     the_food_item.expiry_date = params.fetch("query_expiry_date")
@@ -28,7 +29,7 @@ class FoodItemsController < ApplicationController
       the_food_item.save
       redirect_to("/food_items", { :notice => "Food item created successfully." })
     else
-      redirect_to("/food_items", { :notice => "Food item failed to create successfully." })
+      redirect_to("/food_items", { :notice => "Food item failed to create successfully. Did you add expiry date?" })
     end
   end
 
