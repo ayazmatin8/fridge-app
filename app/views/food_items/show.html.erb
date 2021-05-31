@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Food item #<%= @the_food_item.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/food_items">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_food_item/<%= @the_food_item.id %>">
+          Delete food item
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_food_item.user_id %>
+      </dd>
+
+      <dt>
+        Item name
+      </dt>
+      <dd>
+        <%= @the_food_item.item_name %>
+      </dd>
+
+      <dt>
+        Food category
+      </dt>
+      <dd>
+        <%= @the_food_item.food_category %>
+      </dd>
+
+      <dt>
+        Expiry date
+      </dt>
+      <dd>
+        <%= @the_food_item.expiry_date %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_food_item.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_food_item.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit food item
+    </h2>
+
+    <form action="/modify_food_item/<%= @the_food_item.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_food_item.user_id %>">
+      </div>
+
+      <div>
+        <label for="item_name_box">
+          Item name
+        </label>
+
+        <input type="text" id="item_name_box" name="query_item_name" value="<%= @the_food_item.item_name %>">
+      </div>
+
+      <div>
+        <label for="food_category_box">
+          Food category
+        </label>
+
+        <input type="text" id="food_category_box" name="query_food_category" value="<%= @the_food_item.food_category %>">
+      </div>
+
+      <div>
+        <label for="expiry_date_box">
+          Expiry date
+        </label>
+
+        <input type="date" id="expiry_date_box" name="query_expiry_date" value="<%= @the_food_item.expiry_date %>">
+      </div>
+
+      <button>
+        Update food item
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
