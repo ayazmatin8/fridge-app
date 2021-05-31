@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Routes for the Food item resource:
 
   # CREATE
-  get("/insert_food_item", { :controller => "food_items", :action => "create" })
+  post("/insert_food_item", { :controller => "food_items", :action => "create" })
           
   # READ
   get("/food_items", { :controller => "food_items", :action => "index" })
@@ -46,6 +46,6 @@ Rails.application.routes.draw do
              
   #------------------------------
 
-get("/", { :controller => "users", :action => "index" })
+get("/", { :controller => "food_items", :action => "index" })
 
 end

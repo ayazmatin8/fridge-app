@@ -14,6 +14,7 @@
 class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
+  #validates(:user_id, { :presence => true })
   has_secure_password
 
   has_many(:food_databases, { :class_name => "FoodItem", :foreign_key => "user_id", :dependent => :destroy })
