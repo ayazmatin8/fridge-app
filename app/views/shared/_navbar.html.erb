@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container">
     <a class="navbar-brand" href="/">
-      FinalProject
+      Home
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-nav-links" aria-controls="collapsible-nav-links" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,17 +9,32 @@
     </button>
 
     <div class="collapse navbar-collapse" id="collapsible-nav-links">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Resources
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="/food_items" class="dropdown-item">
-              Food Items
-            </a>
-          </div>
+      
+
+    <ul class="navbar-nav mr-auto">
+      <% if @current_user == nil %>
+        <li class="nav-item">
+          <a href="/user_sign_up" class="nav-link">
+            Sign Up
         </li>
+
+        <li class="nav-item">
+          <a href="/user_sign_in" class="nav-link">
+            Sign In
+        </li>
+      
+      <% else %>
+        <li class="nav-item">
+          <a href="/edit_user_profile" class="nav-link">
+            Edit Profile </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/user_sign_out" class="nav-link">
+            Sign Out </a>
+        </li>
+      <% end %>
+
       </ul>
     </div> <!-- .navbar-collapse -->
   </div> <!-- .container -->

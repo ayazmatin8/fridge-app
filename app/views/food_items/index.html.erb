@@ -1,10 +1,3 @@
-    <ul>
-      <li>
-        <a href="/user_sign_out">
-          Sign out
-        </a>
-      </li>
-    </ul>
 
 <div>
   <div>
@@ -27,16 +20,8 @@
 
 <div>
   <div>
-    <table>
+    <table class="table table-striped">
       <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          User
-        </th>
-
         <th>
           Item name
         </th>
@@ -63,14 +48,7 @@
 
       <% @list_of_food_items.each do |a_food_item| %>
       <tr>
-        <td>
-          <%= a_food_item.id %>
-        </td>
-
-        <td>
-          <%= a_food_item.user_id %>
-        </td>
-
+        
         <td>
           <%= a_food_item.item_name %>
         </td>
