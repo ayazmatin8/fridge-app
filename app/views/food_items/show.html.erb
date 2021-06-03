@@ -67,14 +67,7 @@
     </h2>
 
     <form action="/modify_food_item/<%= @the_food_item.id %>"  method="post" >
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_food_item.user_id %>">
-      </div>
-
+      
       <div>
         <label for="item_name_box">
           Item name

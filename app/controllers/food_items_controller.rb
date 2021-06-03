@@ -37,7 +37,7 @@ class FoodItemsController < ApplicationController
     the_id = params.fetch("path_id")
     the_food_item = FoodItem.where({ :id => the_id }).at(0)
 
-    the_food_item.user_id = params.fetch("query_user_id")
+    the_food_item.user_id = @current_user.id
     the_food_item.item_name = params.fetch("query_item_name")
     the_food_item.food_category = params.fetch("query_food_category")
     the_food_item.expiry_date = params.fetch("query_expiry_date")
