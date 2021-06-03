@@ -34,15 +34,9 @@
           Expiry date
         </th>
 
-        <th>
-          Created at
-        </th>
 
         <th>
-          Updated at
-        </th>
-
-        <th>
+          Details
         </th>
       </tr>
 
@@ -61,13 +55,7 @@
           <%= a_food_item.expiry_date %>
         </td>
 
-        <td>
-          <%= time_ago_in_words(a_food_item.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_food_item.updated_at) %> ago
-        </td>
-
+        
         <td>
           <a href="/food_items/<%= a_food_item.id %>">
             Show details
