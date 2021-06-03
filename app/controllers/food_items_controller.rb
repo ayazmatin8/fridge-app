@@ -3,7 +3,7 @@ class FoodItemsController < ApplicationController
     
     matching_food_items = @current_user.food_items
 
-    @list_of_food_items = matching_food_items.order({ :expiry_date => :desc })
+    @list_of_food_items = matching_food_items.order({ :expiry_date => :asc })
 
     render({ :template => "food_items/index.html.erb" })
   end

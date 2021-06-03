@@ -34,6 +34,9 @@
           Expiry date
         </th>
 
+        <th>
+          Status
+        </th>
 
         <th>
           Details
@@ -54,7 +57,14 @@
         <td>
           <%= a_food_item.expiry_date %>
         </td>
-
+        
+        <td>
+          <% if a_food_item.expiry_date < Date.today %>
+            <button type="button" class="btn btn-danger">Expired</button>
+          <% else %>
+            <button type="button" class="btn btn-success">Fresh</button>
+          <% end %>
+        </td>
         
         <td>
           <a href="/food_items/<%= a_food_item.id %>">
