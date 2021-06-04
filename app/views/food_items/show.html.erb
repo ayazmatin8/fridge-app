@@ -7,15 +7,10 @@
     <div>
       <div>
         <a href="/food_items">
-          Go back
+          <button type="button" class="btn btn-secondary">Go Back</button>
         </a>
       </div>
 
-      <div>
-        <a href="/delete_food_item/<%= @the_food_item.id %>">
-          Delete food item
-        </a>
-      </div>
     </div>
 
     <dl>
@@ -41,6 +36,17 @@
       </dd>
 
       <dt>
+        Status
+      </dt>
+      <dd>
+        <% if @the_food_item.expiry_date < Date.today %>
+            <p class="text-danger">Expired</p>
+          <% else %>
+            <p class="text-success">Fresh</p>
+          <% end %>
+      </dd>
+
+      <dt>
         Created at
       </dt>
       <dd>
@@ -54,6 +60,11 @@
         <%= time_ago_in_words(@the_food_item.updated_at) %> ago
       </dd>
     </dl>
+  </div>
+  <div>
+        <a href="/delete_food_item/<%= @the_food_item.id %>">
+          <button type="button" class="btn btn-primary">Delete Food Item</button>
+        </a>
   </div>
 </div>
 
@@ -92,9 +103,7 @@
         <input type="date" id="expiry_date_box" name="query_expiry_date" value="<%= @the_food_item.expiry_date %>">
       </div>
 
-      <button>
-        Update food item
-      </button>
+      <button type="button" class="btn btn-secondary">Update Food Item</button>
     </form>
   </div>
 </div>
