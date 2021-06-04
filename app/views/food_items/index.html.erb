@@ -5,7 +5,11 @@
       Welcome, <%= @current_user.name %>!
     </h1>
     <h3 class="text-primary">
-      You have <%= @current_user.food_databases_count %> items in your fridge.
+      <% if @current_user.food_databases_count == 0 %>
+        You have no items. Add your first item!
+      <% else %>
+        You have <%= @current_user.food_databases_count %> items in your fridge.
+      <% end %>
     </h3>
   </div>
 </div>
@@ -123,7 +127,6 @@
         <label for="expiry_date_box">
           Expiry date
         </label>
-
         <input type="date" id="expiry_date_box" name="query_expiry_date" class="form-control">
       </div>
 
@@ -132,4 +135,5 @@
       </div>
     </form>
   </div>
+  
 </div>
