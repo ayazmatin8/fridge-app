@@ -2,16 +2,19 @@
 <div>
   <div>
     <h1>
-      Welcome, <%= @current_user.name %>
+      Welcome, <%= @current_user.name %>!
     </h1>
+    <h3 class="text-primary">
+      You have <%= @current_user.food_databases_count %> items in your fridge.
+    </h3>
   </div>
 </div>
 <hr>
 <div>
   <div>
-    <h1>
+    <h3>
       List of all food items
-    </h1>
+    </h3>
   </div>
 </div>
 
@@ -94,9 +97,9 @@
 <hr>
 <div>
   <div>
-    <h2>
+    <h3>
       Add a new food item
-    </h2>
+    </h3>
 
     <form action="/insert_food_item" method="post">
       
@@ -125,7 +128,7 @@
       </div>
 
       <div class="form-group">
-        <button type="button" class="btn btn-primary">Add Food Item</button>
+        <button class="btn btn-primary">Add Food Item</button>
       </div>
     </form>
   </div>

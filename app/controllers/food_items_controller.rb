@@ -29,7 +29,7 @@ class FoodItemsController < ApplicationController
       the_food_item.save
       redirect_to("/food_items", { :notice => "Food item created successfully." })
     else
-      redirect_to("/food_items", { :notice => "Food item failed to create successfully. Did you add expiry date?" })
+      redirect_to("/food_items", { :alert => "Food item failed to create successfully. Did you add expiry date?" })
     end
   end
 
