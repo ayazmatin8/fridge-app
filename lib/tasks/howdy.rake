@@ -11,6 +11,12 @@ task({ :hello => :environment }) do
     reminder_item.alert_status = true
     reminder_item.save
 
+    @user_profile = User.where({ :id => reminder_item.user_id }).at(0)
+    user_email = @user_profile.try(:email)
+    
+    p @user_profile
+    p user_email
+
     require 'mailgun-ruby'
     # Retrieve your credentials from secure storage
     mg_api_key = ENV.fetch("MAILGUN_KEY")
@@ -21,10 +27,10 @@ task({ :hello => :environment }) do
 
     # Craft your email as a Hash with these four keys
     email_parameters =  { 
-      :from => "umbrella@appdevproject.com",
-      :to => "ayaz@live.in",  # Put your own email address here if you want to see it in action
-      :subject => "Take an umbrella today!",
-      :text => "It's going to rain today, take an umbrella with you!"
+      :from => "notification@thefridgeapp.com",
+      :to => user_email ,  # Put your own email address here if you want to see it in action
+      :subject => "Your " + reminder_item.item_name + " is expiring soon.",
+      :text => "Your " + reminder_item.item_name + " is expiring soon. Time to use it!"
     }
 
     # Send your email!
